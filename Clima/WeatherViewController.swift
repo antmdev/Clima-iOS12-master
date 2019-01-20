@@ -7,17 +7,20 @@
 //
 
 import UIKit
+import CoreLocation //taps into GPS data! (Press optino key and click on it to read more)
 
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
-    let APP_ID = "e72ca729af228beabd5d20e3b7749713"
+    let APP_ID = "f24215d49784b506df09879f04117d37" //KEY from Weather app
     /***Get your own App ID at https://openweathermap.org/appid ****/
     
 
     //TODO: Declare instance variables here
+    
+    let locationManager = CLLocationManager ()
     
 
     
@@ -32,6 +35,11 @@ class WeatherViewController: UIViewController {
         
         
         //TODO:Set up the location manager here.
+        
+        locationManager.delegate = self                     // to automatically triangulate the coordinates using apple API
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters                   // accuracy of the geolocating
+        locationManager.requestWhenInUseAuthorization()                 //ask user for permissions to request Data location
+        locationManager.startUpdatingLocation()                  //Ascyncrhonous method to start finding location on launch
     
         
         
@@ -77,9 +85,31 @@ class WeatherViewController: UIViewController {
     
     //Write the didUpdateLocations method here:
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[locations.count - 1]     //grab the last value which is the most accurate
+        if  location.horizontalAccuracy > 0 {                          //ensures that the result is valid
+            locationManager.stopUpdatingLocation()                    // kills using GPS to save battery
+            
+            print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)") //grabing lat and long
+            
+            let latitude = String(location.coordinate.latitude)       //assinging latitude and longitude to constants
+            let longtitude = String(location.coordinate.longitude)
+            
+            let params : [String : String] = ["lat" : latitude, "lon" : longtitude, "appid" : APP_ID]
+            
+            // seeting a "dictionary" which is a Key:Value pair - so we set a STring:String dictionary, which means 'lat' is the key and the value is longtitude
+        }
+        
+    }
+    
     
     
     //Write the didFailWithError method here:
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        cityLabel.text = "Location Unavailable"
+    }
     
     
     
