@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreLocation //taps into GPS data! (Press optino key and click on it to read more)
+import Alamofire
+import SwiftyJSON
+
 
 
 class WeatherViewController: UIViewController, CLLocationManagerDelegate {
@@ -52,6 +55,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     //Write the getWeatherData method here:
     
+    func getWeatherData(url: String, parameters: [String: String]) {
+        
+    }
+    
 
     
     
@@ -90,14 +97,20 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         if  location.horizontalAccuracy > 0 {                          //ensures that the result is valid
             locationManager.stopUpdatingLocation()                    // kills using GPS to save battery
             
-            print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)") //grabing lat and long
+            print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)") //grabbing lat and long
             
             let latitude = String(location.coordinate.latitude)       //assinging latitude and longitude to constants
             let longtitude = String(location.coordinate.longitude)
             
             let params : [String : String] = ["lat" : latitude, "lon" : longtitude, "appid" : APP_ID]
             
-            // seeting a "dictionary" which is a Key:Value pair - so we set a STring:String dictionary, which means 'lat' is the key and the value is longtitude
+            // seeting a "dictionary" which is a Key:Value pair - so we set a STring:String dictionary, which means 'lon' is the key and the value is 'longtitude'
+            // we have to go up to the longitude string and put it in brackets though to fix the "string" to "integer" value error.
+            
+            //ALAMOFIRE for URL HTTP requests
+            
+            getWeatherData(url: WEATHER_URL, parameters: params )
+            
         }
         
     }
