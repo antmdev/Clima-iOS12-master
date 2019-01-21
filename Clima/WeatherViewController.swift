@@ -24,6 +24,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     //TODO: Declare instance variables here
     
     let locationManager = CLLocationManager ()
+    let weatherDataModel = WeatherDataModel()
     
 
     
@@ -43,6 +44,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters                   // accuracy of the geolocating
         locationManager.requestWhenInUseAuthorization()                 //ask user for permissions to request Data location
         locationManager.startUpdatingLocation()                  //Ascyncrhonous method to start finding location on launch
+        locationManager.delegate = nil                           //means the data only is requested once from the API
     
         
         
@@ -54,15 +56,34 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     /***************************************************************/
     
     //Write the getWeatherData method here:
+    //Alamofire makes a GET request, the input data it uses (sends and requests) is the lat and long params defined in the dictionary.
+    //The response type we're expecting is JSON file - if it works we do something... if it doesn't its probably because
+    //the users phone is offline
     
     func getWeatherData(url: String, parameters: [String: String]) {
         
+        Alamofire.request(url, method: .get, parameters : parameters).responseJSON {
+            response in
+            if response.result.isSuccess {
+                print("Success! Got the Weather Data")
+                
+                
+                let weatherJSON : JSON = JSON(response.result.value!)
+        //create constant to assign JSON value to type JSON - force unwrapped as the result must be succesful
+        //SWIFTYJSON -  uses the function to unwrap the JSON file
+        //print(weatherJSON)   // test API is working
+                
+                self.updateWeatherData(json: weatherJSON)
+        //pass weather data to pasring - requires self because we're in a function within a function shown by the "in" after "reponse" above
+                
+            }
+            else {
+                print("Error \(response.result.error)")    //print to console error message
+                self.cityLabel.text = "Connection Issues" //update GUI label
+            }
+        }
+        
     }
-    
-
-    
-    
-    
     
     
     //MARK: - JSON Parsing
@@ -71,9 +92,26 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     //Write the updateWeatherData method here:
     
+    func updateWeatherData(json : JSON) {
+        
+        if let tempResult = json["main"]["temp"].double { // access temp record within main (swifytyJSON) shortcut
+        
+        weatherDataModel.temperature = Int(tempResult - 273.15)  // minus degrees kelvin - force unwrap to fix double issue.
+        
+        weatherDataModel.city = json["name"].stringValue
+        
+        weatherDataModel.condition = json["weather"][0]["id"].intValue //grab the 701 weather condition which is the first value if more than one available.
+     
+        weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
+    }
+    
+    else {
+    
+        cityLabel.text = "Weather Unavailable"
+    }
+}
 
-    
-    
+
     
     //MARK: - UI Updates
     /***************************************************************/
