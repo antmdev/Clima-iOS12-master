@@ -20,7 +20,8 @@ import UIKit
 // for the ptorocol which is you must be able to enter userEnteredANewCityName method
 
 
-protocol ChangeCityDelegate {
+protocol ChangeCityDelegate
+{
     func userEnteredANewCityName (city: String)
 }
 
@@ -42,7 +43,8 @@ class ChangeCityViewController: UIViewController {
 
     
     //This is the IBAction that gets called when the user taps on the "Get Weather" button:
-    @IBAction func getWeatherPressed(_ sender: AnyObject) {
+    @IBAction func getWeatherPressed(_ sender: AnyObject)
+    {
         
         
         
@@ -66,7 +68,8 @@ class ChangeCityViewController: UIViewController {
     
 
     //This is the IBAction that gets called when the user taps the back button. It dismisses the ChangeCityViewController.
-    @IBAction func backButtonPressed(_ sender: AnyObject) {
+    @IBAction func backButtonPressed(_ sender: AnyObject)
+    {
         self.dismiss(animated: true, completion: nil)
     }
     
