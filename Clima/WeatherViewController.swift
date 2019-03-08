@@ -29,7 +29,32 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
-
+    
+    
+    @IBOutlet weak var degreesSwitchOutlet: UISwitch!
+    
+    @IBAction func switchValueChanged(_ sender: Any)
+    {
+        if degreesSwitchOutlet.isOn == true
+        {
+            onCall()
+        }
+        if degreesSwitchOutlet.isOn == false
+        {
+            offCall()
+        }
+    }
+        func onCall()
+        {
+            print("On is calling")
+        }
+        func offCall()
+        {
+            print("Off is calling")
+        }
+    
+    
+        
     
     override func viewDidLoad()
     {
@@ -43,8 +68,13 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         //locationManager.delegate = nil                           //means the data only is requested once from the API -
                                         // THIS ALSO MEANS THE APP DOESNT REQUEST API DATA NEXT TIME YOU LOG ON! REMOVE IT!
         
-        
+
     }
+    
+
+  
+    
+    
     
     
     
