@@ -30,6 +30,12 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     
+    //menu labels
+    
+   
+    @IBAction func locationButtonPressed(_ sender: Any) {
+    }
+    
     
     @IBOutlet weak var degreesSwitchOutlet: UISwitch!
     
@@ -237,7 +243,14 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             let destinationVC = segue.destination as! ChangeCityViewController        //data type of segue will be a destinatioVC s
             destinationVC.delegate = self
         }
+        else if segue.identifier == "locationMenuButton"
+        {
+            let destinationVC = segue.destination as! ChangeCityViewController
+        }
     }
+    
+
+    
 }
 
 
