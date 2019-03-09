@@ -188,6 +188,20 @@
                                     <constraint firstAttribute="bottom" secondItem="PdY-a2-R5m" secondAttribute="bottom" id="rcZ-4T-yCp"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16E-vb-W8y" userLabel="Get Weather Button">
+                                <rect key="frame" x="12" y="255" width="390" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Vwh-aK-U2l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="Get Forecast">
+                                    <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vll-uP-83e" kind="show" identifier="getForecastPressed" id="6pT-VR-NYj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -195,8 +209,11 @@
                             <constraint firstItem="CrA-Xh-KLm" firstAttribute="top" secondItem="R49-jx-b8b" secondAttribute="top" id="EKf-16-7Gr"/>
                             <constraint firstAttribute="bottom" secondItem="CrA-Xh-KLm" secondAttribute="bottom" id="Xk1-0T-ot1"/>
                             <constraint firstItem="CrA-Xh-KLm" firstAttribute="leading" secondItem="R49-jx-b8b" secondAttribute="leading" id="caX-KL-wlx"/>
+                            <constraint firstAttribute="trailing" secondItem="16E-vb-W8y" secondAttribute="trailing" constant="12" id="cj6-if-Q3c"/>
                             <constraint firstAttribute="trailing" secondItem="daC-2b-iRt" secondAttribute="trailing" id="cpA-CY-lCY"/>
+                            <constraint firstItem="16E-vb-W8y" firstAttribute="top" secondItem="daC-2b-iRt" secondAttribute="bottom" constant="34" id="jnj-om-NpX"/>
                             <constraint firstAttribute="trailing" secondItem="CrA-Xh-KLm" secondAttribute="trailing" id="s2P-NW-QCz"/>
+                            <constraint firstItem="16E-vb-W8y" firstAttribute="leading" secondItem="R49-jx-b8b" secondAttribute="leading" constant="12" id="sxA-fu-1aE"/>
                             <constraint firstItem="daC-2b-iRt" firstAttribute="leading" secondItem="R49-jx-b8b" secondAttribute="leading" id="wiz-OH-tsW"/>
                         </constraints>
                     </view>
@@ -209,9 +226,54 @@
             </objects>
             <point key="canvasLocation" x="833.5" y="259.5"/>
         </scene>
+        <!--Forecast View Controller-->
+        <scene sceneID="v0I-PB-VAw">
+            <objects>
+                <viewController title="Forecast View Controller" id="vll-uP-83e" customClass="ForecastViewController" customModule="Clima" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zpV-f2-PYR"/>
+                        <viewControllerLayoutGuide type="bottom" id="bUm-qJ-fhY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7lh-53-FMt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundAlternate" translatesAutoresizingMaskIntoConstraints="NO" id="eXs-le-II2" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apa-Zc-bsc" userLabel="Back Button">
+                                <rect key="frame" x="20" y="44" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="45L-qb-HmU"/>
+                                    <constraint firstAttribute="height" constant="32" id="vkC-Hp-Ei1"/>
+                                </constraints>
+                                <state key="normal" image="left">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="forecastBackButtonPressed:" destination="vll-uP-83e" eventType="touchUpInside" id="JUS-vR-KTb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="eXs-le-II2" secondAttribute="bottom" id="ASE-w5-iVa"/>
+                            <constraint firstItem="eXs-le-II2" firstAttribute="leading" secondItem="7lh-53-FMt" secondAttribute="leading" id="PXi-Db-Y5I"/>
+                            <constraint firstItem="Apa-Zc-bsc" firstAttribute="top" secondItem="zpV-f2-PYR" secondAttribute="bottom" id="bKq-Z1-S5u"/>
+                            <constraint firstItem="Apa-Zc-bsc" firstAttribute="leading" secondItem="7lh-53-FMt" secondAttribute="leadingMargin" id="c78-lq-rsJ"/>
+                            <constraint firstItem="eXs-le-II2" firstAttribute="top" secondItem="7lh-53-FMt" secondAttribute="top" id="iWb-FK-sIa"/>
+                            <constraint firstAttribute="trailing" secondItem="eXs-le-II2" secondAttribute="trailing" id="jch-Bq-1Q4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMJ-5l-n1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1634" y="260"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="500" height="755"/>
+        <image name="backgroundAlternate" width="600" height="337"/>
         <image name="cityBackground" width="600" height="399"/>
         <image name="left" width="32" height="32"/>
         <image name="switch" width="64" height="64"/>

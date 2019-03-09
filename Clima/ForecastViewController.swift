@@ -6,4 +6,21 @@
 //  Copyright © 2019 London App Brewery. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ForecastViewController: UIViewController
+{
+
+    
+    
+    @IBAction func forecastBackButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+//@IBAction func forecastBackButton(_ sender: AnyObject)
+//{
+//
+//}
+
+}
