@@ -14,7 +14,7 @@ class ForecastViewController: UIViewController
     
     
     @IBAction func forecastBackButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     

@@ -70,7 +70,7 @@ class ChangeCityViewController: UIViewController {
     //This is the IBAction that gets called when the user taps the back button. It dismisses the ChangeCityViewController.
     @IBAction func backButtonPressed(_ sender: AnyObject)
     {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
