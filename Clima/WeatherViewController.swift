@@ -35,25 +35,39 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     @IBAction func switchValueChanged(_ sender: Any)
     {
+
+        
         if degreesSwitchOutlet.isOn == true
         {
-            onCall()
+            inFarenheit()
         }
         if degreesSwitchOutlet.isOn == false
         {
-            offCall()
+            inDegrees()
         }
     }
-        func onCall()
-        {
-            print("On is calling")
-        }
-        func offCall()
-        {
-            print("Off is calling")
-        }
+    
+    func inDegrees()
+    {
+       updateUIWithWeatherData()
+    }
+    func inFarenheit()
+    {
+        print("bye")
+        
+        let temperatureInCelsius = Double(weatherDataModel.temperature)
+        
+        print("\(weatherDataModel.temperature)")
+//
+        let temperatureInFah : Double = (temperatureInCelsius * 1.8) + 32
+//
+        print("\(temperatureInFah)")
+        
+        temperatureLabel.text = "\(temperatureInFah)°F"
+    }
     
     
+ 
         
     
     override func viewDidLoad()
@@ -68,6 +82,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         //locationManager.delegate = nil                           //means the data only is requested once from the API -
                                         // THIS ALSO MEANS THE APP DOESNT REQUEST API DATA NEXT TIME YOU LOG ON! REMOVE IT!
         
+        degreesSwitchOutlet.tintColor = UIColor.white
+        degreesSwitchOutlet.thumbTintColor = UIColor.black
+        degreesSwitchOutlet.onTintColor = UIColor.gray
+        degreesSwitchOutlet.isOn = false
 
     }
     
@@ -101,7 +119,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
                 
                 self.updateWeatherData(json: weatherJSON)
         //pass weather data to pasring - requires self because we're in a function within a function shown by the "in" after "reponse" above
-           
             }
             else
             {
@@ -124,7 +141,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         
         if let tempResult = json["main"]["temp"].double  // access temp record within main (swifytyJSON) shortcut
         {
-        weatherDataModel.temperature = Int(tempResult - 273.15)  // minus degrees kelvin - force unwrap to fix double issue.
+        weatherDataModel.temperature = Int(tempResult - 273.15)  // minus degrees kelvin - force unwrap to fix double issue
         weatherDataModel.city = json["name"].stringValue
         weatherDataModel.condition = json["weather"][0]["id"].intValue //grab the 701 weather condition which is the first value if more than one available.
         weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition) //update icons based on condition
@@ -136,6 +153,13 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         cityLabel.text = "Weather Unavailable"
         }
     }
+    
+    
+    
+    
+    
+
+    
 
 
     
@@ -148,7 +172,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     func updateUIWithWeatherData()
     {
         cityLabel.text = weatherDataModel.city                                  //update label to display city name
-        temperatureLabel.text = "\(weatherDataModel.temperature)°"               //update temperature label with temp //add degrees C logo at e
+        temperatureLabel.text = "\(weatherDataModel.temperature)°C"               //update temperature label with temp //add degrees C logo at e
         weatherIcon.image = UIImage (named: weatherDataModel.weatherIconName)   //update UIImage with new icon
     }
     
