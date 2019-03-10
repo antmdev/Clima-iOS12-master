@@ -153,6 +153,7 @@
                                                 <state key="normal" title="Settings Button" image="user-outline"/>
                                                 <connections>
                                                     <action selector="profileButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qYZ-jY-SGs"/>
+                                                    <segue destination="S6w-VH-IdX" kind="show" animates="NO" id="2FN-iS-pBW"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1G4-TM-5VF">
@@ -297,9 +298,6 @@
                                     <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="vll-uP-83e" kind="show" identifier="getForecastPressed" animates="NO" id="6pT-VR-NYj"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-z0-Dqz" userLabel="Menu Bar">
                                 <rect key="frame" x="0.0" y="808" width="414" height="88"/>
@@ -423,7 +421,7 @@
         <!--Forecast Controller Scene-->
         <scene sceneID="V9c-Hb-gY1">
             <objects>
-                <viewController title="Forecast Controller Scene" id="S6w-VH-IdX" sceneMemberID="viewController">
+                <viewController title="Forecast Controller Scene" id="S6w-VH-IdX" customClass="ForecastViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KTz-PJ-lqr"/>
                         <viewControllerLayoutGuide type="bottom" id="AYj-VH-bl6"/>
@@ -432,12 +430,138 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfd-B7-WWa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg-forecast" translatesAutoresizingMaskIntoConstraints="NO" id="Wfd-B7-WWa">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oco-zm-pSA" userLabel="Menu Bar">
+                                <rect key="frame" x="0.0" y="808" width="414" height="88"/>
+                                <subviews>
+                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="hZf-cd-DOV" userLabel="menu-background">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="57v-kl-7f9">
+                                        <rect key="frame" x="42" y="10" width="330" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dl7-yg-tcL">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="3eG-xK-GS6"/>
+                                                    <constraint firstAttribute="height" constant="60" id="HzT-6y-6Nd"/>
+                                                    <constraint firstAttribute="width" constant="60" id="iOp-3b-zKJ"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="yRB-kI-6ci"/>
+                                                </constraints>
+                                                <state key="normal" title="HomeButton" image="house-outline"/>
+                                                <connections>
+                                                    <action selector="homeButtonPressed:" destination="htd-m5-2Rl" eventType="touchUpInside" id="F97-QW-gcE"/>
+                                                    <action selector="homeButtonPressed:" destination="P1Y-dL-zMM" eventType="touchUpInside" id="jlT-y0-9qM"/>
+                                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="homeButtonPressed" animates="NO" id="2Gb-xb-Cbd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAs-ef-2vE">
+                                                <rect key="frame" x="90" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="0V5-he-c1o"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="3KB-5z-Ws4"/>
+                                                    <constraint firstAttribute="width" constant="60" id="47e-Q7-oQT"/>
+                                                </constraints>
+                                                <state key="normal" title="Location Button" image="location-marker"/>
+                                                <connections>
+                                                    <action selector="locationButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="h8i-XC-qav"/>
+                                                    <segue destination="P1Y-dL-zMM" kind="show" identifier="locationMenuButton" animates="NO" id="f8D-w9-7kG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKm-CF-h6O" userLabel="Profile Button">
+                                                <rect key="frame" x="180" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="XRs-Cz-F3D"/>
+                                                    <constraint firstAttribute="width" constant="60" id="pc6-Nm-goh"/>
+                                                    <constraint firstAttribute="height" constant="60" id="qLX-2E-d6r"/>
+                                                </constraints>
+                                                <state key="normal" title="Settings Button" image="user-outline-blue"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qv6-Kb-dmV">
+                                                <rect key="frame" x="270" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="3Ll-UZ-yix"/>
+                                                    <constraint firstAttribute="width" constant="60" id="4F2-3V-kEZ"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="iQi-B8-5my"/>
+                                                </constraints>
+                                                <state key="normal" title="SettingsButton" image="settings-cogwheel"/>
+                                                <connections>
+                                                    <segue destination="vll-uP-83e" kind="show" identifier="settingsButtonPressed" animates="NO" id="ecp-mL-8q5"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hZf-cd-DOV" firstAttribute="leading" secondItem="oco-zm-pSA" secondAttribute="leading" id="19w-7r-eOq"/>
+                                    <constraint firstAttribute="trailing" secondItem="hZf-cd-DOV" secondAttribute="trailing" id="7Ih-Ex-8O7"/>
+                                    <constraint firstAttribute="bottom" secondItem="57v-kl-7f9" secondAttribute="bottom" constant="18" id="D4w-uP-yvp"/>
+                                    <constraint firstAttribute="bottom" secondItem="hZf-cd-DOV" secondAttribute="bottom" constant="1" id="F0N-Ak-eEe"/>
+                                    <constraint firstAttribute="trailing" secondItem="hZf-cd-DOV" secondAttribute="trailing" id="Iad-qe-Jg1"/>
+                                    <constraint firstItem="hZf-cd-DOV" firstAttribute="leading" secondItem="oco-zm-pSA" secondAttribute="leading" id="Jjb-Ty-0qK"/>
+                                    <constraint firstItem="57v-kl-7f9" firstAttribute="leading" secondItem="oco-zm-pSA" secondAttribute="leading" constant="42" id="U1v-59-jMI"/>
+                                    <constraint firstAttribute="bottom" secondItem="hZf-cd-DOV" secondAttribute="bottom" constant="1" id="V9p-Bn-JnE"/>
+                                    <constraint firstAttribute="height" constant="88" id="a9H-YA-QiK"/>
+                                    <constraint firstAttribute="trailing" secondItem="hZf-cd-DOV" secondAttribute="trailing" id="aKJ-d3-ldK"/>
+                                    <constraint firstItem="57v-kl-7f9" firstAttribute="centerX" secondItem="oco-zm-pSA" secondAttribute="centerX" id="ajv-GM-3dA"/>
+                                    <constraint firstItem="hZf-cd-DOV" firstAttribute="leading" secondItem="oco-zm-pSA" secondAttribute="leading" id="bra-Y6-Geb"/>
+                                    <constraint firstItem="hZf-cd-DOV" firstAttribute="top" secondItem="oco-zm-pSA" secondAttribute="top" id="cdq-UG-bXR"/>
+                                    <constraint firstAttribute="width" constant="414" id="uGA-Dd-QEh"/>
+                                    <constraint firstAttribute="trailing" secondItem="57v-kl-7f9" secondAttribute="trailing" constant="42" id="xEg-Ou-77j"/>
+                                    <constraint firstAttribute="bottom" secondItem="hZf-cd-DOV" secondAttribute="bottom" constant="1" id="zrS-Hd-KyP"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="154" translatesAutoresizingMaskIntoConstraints="NO" id="CQb-DG-CBf" userLabel="Day1 Row">
+                                <rect key="frame" x="35" y="123" width="344" height="74"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAt-Va-Z6f">
+                                        <rect key="frame" x="0.0" y="19.666666666666657" width="73.666666666666671" height="35"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ok2-n0-KVu">
+                                        <rect key="frame" x="269" y="0.0" width="75" height="74"/>
+                                        <color key="backgroundColor" red="0.42998916650000002" green="1" blue="0.54279069729999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoQ-eL-KHH">
+                                <rect key="frame" x="53" y="60" width="314" height="35"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="oco-zm-pSA" secondAttribute="bottom" id="7TO-WW-tqH"/>
+                            <constraint firstItem="oco-zm-pSA" firstAttribute="leading" secondItem="8cW-Wn-prR" secondAttribute="leading" id="DKD-2V-rad"/>
+                            <constraint firstItem="zoQ-eL-KHH" firstAttribute="leading" secondItem="8cW-Wn-prR" secondAttribute="leadingMargin" constant="33" id="Jg2-P7-OJR"/>
+                            <constraint firstItem="zoQ-eL-KHH" firstAttribute="top" secondItem="KTz-PJ-lqr" secondAttribute="bottom" constant="16" id="ea0-4t-HIh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CQb-DG-CBf" secondAttribute="trailing" constant="15" id="hTQ-e5-tD4"/>
+                            <constraint firstItem="CQb-DG-CBf" firstAttribute="top" secondItem="zoQ-eL-KHH" secondAttribute="bottom" constant="28" id="huC-dp-ZkS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zoQ-eL-KHH" secondAttribute="trailing" constant="27" id="jbo-t3-wub"/>
+                            <constraint firstAttribute="trailing" secondItem="oco-zm-pSA" secondAttribute="trailing" id="oFl-Nj-fxp"/>
+                            <constraint firstItem="CQb-DG-CBf" firstAttribute="leading" secondItem="8cW-Wn-prR" secondAttribute="leadingMargin" constant="15" id="qKS-2m-rBS"/>
+                            <constraint firstItem="CQb-DG-CBf" firstAttribute="top" secondItem="zoQ-eL-KHH" secondAttribute="bottom" constant="28" id="szW-e9-QvN"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2B-Ss-GaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -568,6 +692,7 @@
     <resources>
         <image name="background" width="500" height="755"/>
         <image name="backgroundAlternate" width="600" height="337"/>
+        <image name="bg-forecast" width="1200" height="800"/>
         <image name="cityBackground" width="600" height="399"/>
         <image name="house-outline" width="480" height="480"/>
         <image name="house-outline-blue" width="480" height="480"/>
@@ -579,9 +704,11 @@
         <image name="settings-cogwheel-blue" width="480" height="480"/>
         <image name="switch" width="64" height="64"/>
         <image name="user-outline" width="480" height="480"/>
+        <image name="user-outline-blue" width="480" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6pT-VR-NYj"/>
-        <segue reference="WVH-FT-ffp"/>
+        <segue reference="GXd-mQ-8Qc"/>
+        <segue reference="f8D-w9-7kG"/>
+        <segue reference="2Gb-xb-Cbd"/>
     </inferredMetricsTieBreakers>
 </document>

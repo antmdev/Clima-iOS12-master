@@ -266,6 +266,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         {
             let destinationVC = segue.destination as! SettingsViewController
         }
+        else if segue.identifier == "forecastButtonPressed"
+        {
+            let destinationVC = segue.destination as! ForecastViewController
+        }
     }
     
 

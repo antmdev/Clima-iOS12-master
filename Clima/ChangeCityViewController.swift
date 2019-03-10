@@ -83,15 +83,7 @@ class ChangeCityViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         
-        if segue.identifier == "getForecastPressed"
-        {
-            let destinationVC = segue.destination as! SettingsViewController
-            
-        }
-//        else if segue.identifier == "homeButtonPressed"
-//        {
-//            let destinationVC = segue.destination as! WeatherViewController
-//        }
+
     }
     
 }
