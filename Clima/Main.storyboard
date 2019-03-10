@@ -153,7 +153,7 @@
                                                 <state key="normal" title="Settings Button" image="user-outline"/>
                                                 <connections>
                                                     <action selector="profileButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qYZ-jY-SGs"/>
-                                                    <segue destination="S6w-VH-IdX" kind="show" animates="NO" id="2FN-iS-pBW"/>
+                                                    <segue destination="S6w-VH-IdX" kind="show" identifier="forecastButtonPressed" animates="NO" id="qZQ-72-mPF"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1G4-TM-5VF">
@@ -364,9 +364,6 @@
                                                     <constraint firstAttribute="width" constant="60" id="qUF-Jn-oQk"/>
                                                 </constraints>
                                                 <state key="normal" title="SettingsButton" image="settings-cogwheel"/>
-                                                <connections>
-                                                    <segue destination="vll-uP-83e" kind="show" animates="NO" id="GXd-mQ-8Qc"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -421,7 +418,7 @@
         <!--Forecast Controller Scene-->
         <scene sceneID="V9c-Hb-gY1">
             <objects>
-                <viewController title="Forecast Controller Scene" id="S6w-VH-IdX" customClass="ForecastViewController" sceneMemberID="viewController">
+                <viewController title="Forecast Controller Scene" id="S6w-VH-IdX" customClass="ForecastViewController" customModule="Clima" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KTz-PJ-lqr"/>
                         <viewControllerLayoutGuide type="bottom" id="AYj-VH-bl6"/>
@@ -528,7 +525,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="154" translatesAutoresizingMaskIntoConstraints="NO" id="CQb-DG-CBf" userLabel="Day1 Row">
-                                <rect key="frame" x="35" y="123" width="344" height="74"/>
+                                <rect key="frame" x="35" y="129" width="344" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAt-Va-Z6f">
                                         <rect key="frame" x="0.0" y="19.666666666666657" width="73.666666666666671" height="35"/>
@@ -543,8 +540,8 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoQ-eL-KHH">
-                                <rect key="frame" x="53" y="60" width="314" height="35"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <rect key="frame" x="53" y="60" width="314" height="41"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -563,6 +560,8 @@
                             <constraint firstItem="CQb-DG-CBf" firstAttribute="top" secondItem="zoQ-eL-KHH" secondAttribute="bottom" constant="28" id="szW-e9-QvN"/>
                         </constraints>
                     </view>
+                    <connections>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2B-Ss-GaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -571,7 +570,7 @@
         <!--Settings View Controller-->
         <scene sceneID="v0I-PB-VAw">
             <objects>
-                <viewController title="Settings View Controller" id="vll-uP-83e" customClass="ForecastViewController" customModule="Clima" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings View Controller" id="vll-uP-83e" customClass="SettingsViewController" customModule="Clima" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zpV-f2-PYR"/>
                         <viewControllerLayoutGuide type="bottom" id="bUm-qJ-fhY"/>
@@ -707,7 +706,7 @@
         <image name="user-outline-blue" width="480" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GXd-mQ-8Qc"/>
+        <segue reference="ecp-mL-8q5"/>
         <segue reference="f8D-w9-7kG"/>
         <segue reference="2Gb-xb-Cbd"/>
     </inferredMetricsTieBreakers>

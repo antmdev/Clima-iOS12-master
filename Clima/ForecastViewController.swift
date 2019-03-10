@@ -7,43 +7,23 @@
 //
 
 import UIKit
-
+//import CoreLocation //taps into GPS data! (Press optino key and click on it to read more)
+//import Alamofire   //rember to run "pod update" in terminal to update pods
+//import SwiftyJSON
+//
 class ForecastViewController: UIViewController
 {
+//{
 //    //Constants
-//    let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
-//    let APP_ID = "f24215d49784b506df09879f04117d37" //KEY from Weather app
-//    /***Get your own App ID at https://openweathermap.org/appid ****/
+
 //
 //    //TODO: Declare instance variables here
 //    let locationManager = CLLocationManager()
 //    let weatherDataModel = WeatherDataModel()
 //
 //    //Pre-linked IBOutlets
-//    @IBOutlet weak var weatherIcon: UIImageView!
-//    @IBOutlet weak var cityLabel: UILabel!
-//    @IBOutlet weak var temperatureLabel: UILabel!
 //
-//    //menu labels
-//
-//
-//    override func viewDidLoad()
-//    {
-//        super.viewDidLoad()
-//
-//        //TODO:Set up the location manager here.
-//        locationManager.delegate = self                     // to automatically triangulate the coordinates using apple API
-//        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters                   // accuracy of the geolocating
-//        locationManager.requestWhenInUseAuthorization()                 //ask user for permissions to request Data location
-//        locationManager.startUpdatingLocation()                  //Ascyncrhonous method to start finding location on launch
-//        //locationManager.delegate = nil                           //means the data only is requested once from the API -
-//        // THIS ALSO MEANS THE APP DOESNT REQUEST API DATA NEXT TIME YOU LOG ON! REMOVE IT!
-//
-//
-//
-//    }
-//
-//
+// NEED TO RE ADD THESE
 //
 //
 //    //MARK: - Networking
@@ -73,7 +53,7 @@ class ForecastViewController: UIViewController
 //                else
 //                {
 //                    print("Error \(response.result.error)")    //print to console error message
-//                    self.cityLabel.text = "Connection Issues" //update GUI label
+//                    self.forecastLocationLabel.text = "Connection Issues" //update GUI label
 //                }
 //        }
 //
@@ -100,7 +80,7 @@ class ForecastViewController: UIViewController
 //
 //        else
 //        {
-//            cityLabel.text = "Weather Unavailable"
+//            forecastLocationLabel.text = "Weather Unavailable"
 //        }
 //    }
 //
@@ -113,9 +93,9 @@ class ForecastViewController: UIViewController
 //
 //    func updateUIWithWeatherData()
 //    {
-//        cityLabel.text = weatherDataModel.city                                  //update label to display city name
-//        temperatureLabel.text = "\(weatherDataModel.temperature)°C"               //update temperature label with temp //add degrees C logo at e
-//        weatherIcon.image = UIImage (named: weatherDataModel.weatherIconName)   //update UIImage with new icon
+//        forecastLocationLabel.text = weatherDataModel.city                                  //update label to display city name
+//        dayOneForecastLabel.text = "\(weatherDataModel.temperature)°C"               //update temperature label with temp //add degrees C logo at e
+//        dayOneImageLabel.image = UIImage (named: weatherDataModel.weatherIconName)   //update UIImage with new icon
 //    }
 //
 //
@@ -154,7 +134,7 @@ class ForecastViewController: UIViewController
 //    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
 //    {
 //        print(error)
-//        cityLabel.text = "Location Unavailable"
+//        forecastLocationLabel.text = "Location Unavailable"
 //    }
 //
 //    //MARK: - Change City Delegate methods
@@ -166,7 +146,7 @@ class ForecastViewController: UIViewController
 //        let params : [String : String] = ["q" : city, "appid" : APP_ID]
 //        getWeatherData(url: WEATHER_URL, parameters: params)
 //    }
-    
+//
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
