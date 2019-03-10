@@ -42,6 +42,8 @@ class ChangeCityViewController: UIViewController {
     @IBOutlet weak var changeCityTextField: UITextField!
 
     
+    @IBAction func menuButtonPressed(_ sender: Any) {
+    }
     //This is the IBAction that gets called when the user taps on the "Get Weather" button:
     @IBAction func getWeatherPressed(_ sender: AnyObject)
     {
@@ -73,14 +75,23 @@ class ChangeCityViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func homeButtonPressed(_ sender: AnyObject)
+    {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         
         if segue.identifier == "getForecastPressed"
         {
-            let destinationVC = segue.destination as! ForecastViewController
+            let destinationVC = segue.destination as! SettingsViewController
             
         }
+//        else if segue.identifier == "homeButtonPressed"
+//        {
+//            let destinationVC = segue.destination as! WeatherViewController
+//        }
     }
     
 }

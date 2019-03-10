@@ -36,6 +36,17 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     @IBAction func locationButtonPressed(_ sender: Any) {
     }
     
+    @IBAction func homeButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func profileButtonPressed(_ sender: Any) {
+    }
+    
+    
+    //
     
     @IBOutlet weak var degreesSwitchOutlet: UISwitch!
     
@@ -246,6 +257,14 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         else if segue.identifier == "locationMenuButton"
         {
             let destinationVC = segue.destination as! ChangeCityViewController
+        }
+        else if segue.identifier == "homeButtonPressed"
+        {
+            let destinationVC = segue.destination as! WeatherViewController
+        }
+        else if segue.identifier == "settingsButtonPressed"
+        {
+            let destinationVC = segue.destination as! SettingsViewController
         }
     }
     

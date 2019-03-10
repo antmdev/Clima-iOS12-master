@@ -91,14 +91,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="qmF-EF-hkS">
-                                <rect key="frame" x="0.0" y="804" width="414" height="92"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="Vr0-Ta-PVc"/>
-                                    <constraint firstAttribute="width" constant="414" id="yJH-iZ-KIg"/>
-                                </constraints>
-                            </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fId-iL-piH">
                                 <rect key="frame" x="55" y="85" width="51" height="31"/>
                                 <constraints>
@@ -109,76 +101,115 @@
                                     <action selector="switchValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="qqH-X0-Lj2"/>
                                 </connections>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxL-h6-dzJ">
-                                <rect key="frame" x="55" y="813" width="60" height="60"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                </accessibility>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGF-B1-b6B" userLabel="Menu Bar">
+                                <rect key="frame" x="0.0" y="808" width="414" height="88"/>
+                                <subviews>
+                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="qmF-EF-hkS" userLabel="menu-background">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0ag-Cy-pKF">
+                                        <rect key="frame" x="42" y="10" width="330" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxL-h6-dzJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="GzB-YA-fc8"/>
+                                                    <constraint firstAttribute="height" constant="60" id="NXT-yP-UfM"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Xmz-M9-KNJ"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="boL-xd-ae7"/>
+                                                </constraints>
+                                                <state key="normal" title="HomeButton" image="house-outline-blue"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgK-cn-5kz">
+                                                <rect key="frame" x="90" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="OX5-P7-Tg2"/>
+                                                    <constraint firstAttribute="height" constant="60" id="QVx-iq-5qc"/>
+                                                    <constraint firstAttribute="width" constant="60" id="gax-v5-Dkh"/>
+                                                </constraints>
+                                                <state key="normal" title="Location Button" image="location-marker"/>
+                                                <connections>
+                                                    <action selector="locationButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="10T-as-ffH"/>
+                                                    <segue destination="P1Y-dL-zMM" kind="show" animates="NO" id="bPT-PX-iwH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7l-bu-cWM" userLabel="Profile Button">
+                                                <rect key="frame" x="180" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="D3L-48-8Kr"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Mey-hA-bIt"/>
+                                                    <constraint firstAttribute="height" constant="60" id="tZM-7v-bo6"/>
+                                                </constraints>
+                                                <state key="normal" title="Settings Button" image="user-outline"/>
+                                                <connections>
+                                                    <action selector="profileButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qYZ-jY-SGs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1G4-TM-5VF">
+                                                <rect key="frame" x="270" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="Z6v-bn-pjv"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="fcK-FN-PMH"/>
+                                                    <constraint firstAttribute="width" constant="60" id="mFe-Fe-I5F"/>
+                                                </constraints>
+                                                <state key="normal" title="SettingsButton" image="settings-cogwheel"/>
+                                                <connections>
+                                                    <action selector="settingsButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="K4g-Ak-2fX"/>
+                                                    <segue destination="vll-uP-83e" kind="show" animates="NO" id="kxL-ro-R2i"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Si6-Uh-4h5"/>
-                                    <constraint firstAttribute="width" constant="60" id="mKJ-H9-7f4"/>
+                                    <constraint firstAttribute="bottom" secondItem="qmF-EF-hkS" secondAttribute="bottom" constant="1" id="01s-Bf-C8d"/>
+                                    <constraint firstAttribute="trailing" secondItem="qmF-EF-hkS" secondAttribute="trailing" id="JrQ-SF-knm"/>
+                                    <constraint firstAttribute="height" constant="88" id="ZgC-DA-CrU"/>
+                                    <constraint firstAttribute="trailing" secondItem="qmF-EF-hkS" secondAttribute="trailing" id="d7Z-uM-7CD"/>
+                                    <constraint firstItem="qmF-EF-hkS" firstAttribute="leading" secondItem="zGF-B1-b6B" secondAttribute="leading" id="kBq-ys-XBO"/>
+                                    <constraint firstAttribute="width" constant="414" id="l5i-Oz-OE7"/>
+                                    <constraint firstItem="qmF-EF-hkS" firstAttribute="leading" secondItem="zGF-B1-b6B" secondAttribute="leading" id="lrL-Xy-Tyi"/>
+                                    <constraint firstItem="qmF-EF-hkS" firstAttribute="top" secondItem="zGF-B1-b6B" secondAttribute="top" id="ls0-0q-F0m"/>
+                                    <constraint firstItem="0ag-Cy-pKF" firstAttribute="centerX" secondItem="zGF-B1-b6B" secondAttribute="centerX" id="mG1-4n-TDH"/>
+                                    <constraint firstAttribute="bottom" secondItem="qmF-EF-hkS" secondAttribute="bottom" constant="1" id="qn4-QW-39d"/>
+                                    <constraint firstItem="0ag-Cy-pKF" firstAttribute="leading" secondItem="zGF-B1-b6B" secondAttribute="leading" constant="42" id="qyF-41-ZOX"/>
+                                    <constraint firstAttribute="bottom" secondItem="0ag-Cy-pKF" secondAttribute="bottom" constant="18" id="xCa-LT-W7s"/>
+                                    <constraint firstAttribute="trailing" secondItem="0ag-Cy-pKF" secondAttribute="trailing" constant="42" id="yA4-Ob-Bh6"/>
                                 </constraints>
-                                <state key="normal" title="Home Button" image="house-outline"/>
-                                <connections>
-                                    <action selector="menuButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XeJ-c7-smZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgK-cn-5kz">
-                                <rect key="frame" x="177" y="813" width="80" height="60"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="fRU-sV-ggK"/>
-                                    <constraint firstAttribute="height" constant="60" id="uvg-eR-LJP"/>
-                                </constraints>
-                                <state key="normal" title="Location Button" image="placeholder"/>
-                                <connections>
-                                    <action selector="locationButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="10T-as-ffH"/>
-                                    <segue destination="P1Y-dL-zMM" kind="show" animates="NO" id="bPT-PX-iwH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7l-bu-cWM">
-                                <rect key="frame" x="310" y="813" width="64" height="60"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="RgP-y7-sYh"/>
-                                    <constraint firstAttribute="width" constant="64" id="h98-vJ-pJ5"/>
-                                </constraints>
-                                <state key="normal" title="Settings Button" image="settings"/>
-                                <connections>
-                                    <action selector="settingsButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DCU-tt-VJt"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fId-iL-piH" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="41" id="0KT-ZJ-96u"/>
+                            <constraint firstAttribute="trailing" secondItem="zGF-B1-b6B" secondAttribute="trailing" id="5zn-jD-ojw"/>
                             <constraint firstItem="ltl-Vx-cyR" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="80" id="6Lp-7W-0q4"/>
-                            <constraint firstItem="XgK-cn-5kz" firstAttribute="leading" secondItem="DxL-h6-dzJ" secondAttribute="trailing" constant="62" id="6si-2N-idP"/>
                             <constraint firstItem="E0h-aX-oBb" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="7vB-96-MsA"/>
                             <constraint firstItem="ltl-Vx-cyR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="49" id="8Kv-mD-1Qj"/>
+                            <constraint firstItem="zGF-B1-b6B" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="9C0-GB-g6m"/>
                             <constraint firstItem="E0h-aX-oBb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="CN9-ZE-mQk"/>
                             <constraint firstItem="th1-Kr-XgW" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="OCL-NQ-UMw"/>
-                            <constraint firstItem="R7l-bu-cWM" firstAttribute="leading" secondItem="XgK-cn-5kz" secondAttribute="trailing" constant="53" id="RM3-o3-CLy"/>
                             <constraint firstItem="VNR-V6-HMc" firstAttribute="top" secondItem="ltl-Vx-cyR" secondAttribute="bottom" constant="119" id="T3A-Ua-2yO"/>
-                            <constraint firstAttribute="bottom" secondItem="R7l-bu-cWM" secondAttribute="bottom" constant="23" id="Tto-Ub-ud1"/>
-                            <constraint firstAttribute="trailing" secondItem="R7l-bu-cWM" secondAttribute="trailing" constant="55" id="VWN-R6-SuU"/>
-                            <constraint firstAttribute="bottom" secondItem="qmF-EF-hkS" secondAttribute="bottom" id="XJ9-YQ-Rlo"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="VNR-V6-HMc" secondAttribute="bottom" constant="20" id="Z6J-2F-fG1"/>
-                            <constraint firstItem="R7l-bu-cWM" firstAttribute="leading" secondItem="XgK-cn-5kz" secondAttribute="trailing" constant="53" id="byj-yr-RPI"/>
-                            <constraint firstAttribute="bottom" secondItem="DxL-h6-dzJ" secondAttribute="bottom" constant="23" id="e30-7G-Yyn"/>
+                            <constraint firstAttribute="bottom" secondItem="zGF-B1-b6B" secondAttribute="bottom" id="ZiN-ca-jGh"/>
                             <constraint firstAttribute="trailing" secondItem="E0h-aX-oBb" secondAttribute="trailing" id="hub-6C-cfa"/>
                             <constraint firstAttribute="bottom" secondItem="E0h-aX-oBb" secondAttribute="bottom" id="iES-6G-TkF"/>
                             <constraint firstItem="VNR-V6-HMc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="l5f-UK-c3f"/>
                             <constraint firstItem="th1-Kr-XgW" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="mHS-yD-ZBh"/>
-                            <constraint firstItem="DxL-h6-dzJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="55" id="mhW-8y-UoD"/>
                             <constraint firstAttribute="trailing" secondItem="VNR-V6-HMc" secondAttribute="trailing" id="nWN-M1-3ds"/>
                             <constraint firstItem="fId-iL-piH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="35" id="pTj-W4-TvR"/>
-                            <constraint firstItem="XgK-cn-5kz" firstAttribute="leading" secondItem="DxL-h6-dzJ" secondAttribute="trailing" constant="62" id="qJ4-MU-fWo"/>
-                            <constraint firstAttribute="bottom" secondItem="XgK-cn-5kz" secondAttribute="bottom" constant="23" id="yIb-jV-Mey"/>
                         </constraints>
                     </view>
                     <connections>
@@ -270,16 +301,110 @@
                                     <segue destination="vll-uP-83e" kind="show" identifier="getForecastPressed" animates="NO" id="6pT-VR-NYj"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-z0-Dqz" userLabel="Menu Bar">
+                                <rect key="frame" x="0.0" y="808" width="414" height="88"/>
+                                <subviews>
+                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="3Ui-gc-B2w" userLabel="menu-background">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="uM9-DN-fgb">
+                                        <rect key="frame" x="42" y="10" width="330" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sD-X3-aBO">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="FGv-Dc-6Xs"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="aqi-hm-T8f"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="hLo-0Q-4O6"/>
+                                                    <constraint firstAttribute="height" constant="60" id="rhI-e0-olg"/>
+                                                </constraints>
+                                                <state key="normal" title="HomeButton" image="house-outline"/>
+                                                <connections>
+                                                    <action selector="homeButtonPressed:" destination="htd-m5-2Rl" eventType="touchUpInside" id="X06-rC-4t1"/>
+                                                    <action selector="homeButtonPressed:" destination="P1Y-dL-zMM" eventType="touchUpInside" id="ZHd-Pz-799"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7X-sz-GvF">
+                                                <rect key="frame" x="90" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="9aY-SY-ewF"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="IQm-QV-59O"/>
+                                                    <constraint firstAttribute="width" constant="60" id="Je0-7H-f3n"/>
+                                                </constraints>
+                                                <state key="normal" title="Location Button" image="location-marker-blue"/>
+                                                <connections>
+                                                    <action selector="locationButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UL1-hh-c43"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wF1-EL-mXK" userLabel="Profile Button">
+                                                <rect key="frame" x="180" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="ACO-sy-Akf"/>
+                                                    <constraint firstAttribute="width" constant="60" id="Gob-Ce-ZED"/>
+                                                    <constraint firstAttribute="height" constant="60" id="tpE-Gy-Uen"/>
+                                                </constraints>
+                                                <state key="normal" title="Settings Button" image="user-outline"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmK-mK-Mem">
+                                                <rect key="frame" x="270" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="c9V-z6-Lh3"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="kkJ-JD-1R7"/>
+                                                    <constraint firstAttribute="width" constant="60" id="qUF-Jn-oQk"/>
+                                                </constraints>
+                                                <state key="normal" title="SettingsButton" image="settings-cogwheel"/>
+                                                <connections>
+                                                    <segue destination="vll-uP-83e" kind="show" animates="NO" id="GXd-mQ-8Qc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="3Ui-gc-B2w" secondAttribute="trailing" id="0GW-ke-kPA"/>
+                                    <constraint firstAttribute="height" constant="88" id="849-zN-Vqt"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Ui-gc-B2w" secondAttribute="bottom" constant="1" id="BE7-ti-52Q"/>
+                                    <constraint firstItem="3Ui-gc-B2w" firstAttribute="top" secondItem="MDy-z0-Dqz" secondAttribute="top" id="JG8-sR-EtS"/>
+                                    <constraint firstItem="3Ui-gc-B2w" firstAttribute="leading" secondItem="MDy-z0-Dqz" secondAttribute="leading" id="Nax-0n-9Xk"/>
+                                    <constraint firstAttribute="width" constant="414" id="Pfe-yW-RSW"/>
+                                    <constraint firstItem="3Ui-gc-B2w" firstAttribute="leading" secondItem="MDy-z0-Dqz" secondAttribute="leading" id="TFg-Hp-8MS"/>
+                                    <constraint firstItem="3Ui-gc-B2w" firstAttribute="leading" secondItem="MDy-z0-Dqz" secondAttribute="leading" id="asq-aM-Qxq"/>
+                                    <constraint firstAttribute="bottom" secondItem="uM9-DN-fgb" secondAttribute="bottom" constant="18" id="dsn-3j-oRS"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Ui-gc-B2w" secondAttribute="bottom" constant="1" id="fyq-q2-eOp"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Ui-gc-B2w" secondAttribute="bottom" constant="1" id="kCh-ZI-rNX"/>
+                                    <constraint firstItem="uM9-DN-fgb" firstAttribute="leading" secondItem="MDy-z0-Dqz" secondAttribute="leading" constant="42" id="l2E-ee-dQT"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Ui-gc-B2w" secondAttribute="trailing" id="vfV-fv-Nsr"/>
+                                    <constraint firstAttribute="trailing" secondItem="uM9-DN-fgb" secondAttribute="trailing" constant="42" id="wdF-zf-suX"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Ui-gc-B2w" secondAttribute="trailing" id="yoi-3W-wga"/>
+                                    <constraint firstItem="uM9-DN-fgb" firstAttribute="centerX" secondItem="MDy-z0-Dqz" secondAttribute="centerX" id="ysY-BP-HcS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="daC-2b-iRt" firstAttribute="top" secondItem="R49-jx-b8b" secondAttribute="top" id="4G3-0n-xG5"/>
+                            <constraint firstAttribute="bottom" secondItem="MDy-z0-Dqz" secondAttribute="bottom" id="CyQ-hs-Fgt"/>
                             <constraint firstItem="CrA-Xh-KLm" firstAttribute="top" secondItem="R49-jx-b8b" secondAttribute="top" id="EKf-16-7Gr"/>
+                            <constraint firstAttribute="trailing" secondItem="MDy-z0-Dqz" secondAttribute="trailing" id="PmC-Ir-1Oi"/>
                             <constraint firstAttribute="bottom" secondItem="CrA-Xh-KLm" secondAttribute="bottom" id="Xk1-0T-ot1"/>
                             <constraint firstItem="CrA-Xh-KLm" firstAttribute="leading" secondItem="R49-jx-b8b" secondAttribute="leading" id="caX-KL-wlx"/>
                             <constraint firstAttribute="trailing" secondItem="16E-vb-W8y" secondAttribute="trailing" constant="12" id="cj6-if-Q3c"/>
                             <constraint firstAttribute="trailing" secondItem="daC-2b-iRt" secondAttribute="trailing" id="cpA-CY-lCY"/>
                             <constraint firstItem="16E-vb-W8y" firstAttribute="top" secondItem="daC-2b-iRt" secondAttribute="bottom" constant="34" id="jnj-om-NpX"/>
+                            <constraint firstItem="MDy-z0-Dqz" firstAttribute="leading" secondItem="R49-jx-b8b" secondAttribute="leading" id="luB-To-EyS"/>
                             <constraint firstAttribute="trailing" secondItem="CrA-Xh-KLm" secondAttribute="trailing" id="s2P-NW-QCz"/>
                             <constraint firstItem="16E-vb-W8y" firstAttribute="leading" secondItem="R49-jx-b8b" secondAttribute="leading" constant="12" id="sxA-fu-1aE"/>
                             <constraint firstItem="daC-2b-iRt" firstAttribute="leading" secondItem="R49-jx-b8b" secondAttribute="leading" id="wiz-OH-tsW"/>
@@ -291,13 +416,38 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wa8-oH-wtf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="htd-m5-2Rl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="833.5" y="259.5"/>
         </scene>
-        <!--Forecast View Controller-->
+        <!--Forecast Controller Scene-->
+        <scene sceneID="V9c-Hb-gY1">
+            <objects>
+                <viewController title="Forecast Controller Scene" id="S6w-VH-IdX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KTz-PJ-lqr"/>
+                        <viewControllerLayoutGuide type="bottom" id="AYj-VH-bl6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8cW-Wn-prR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfd-B7-WWa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J2B-Ss-GaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1563.768115942029" y="255.80357142857142"/>
+        </scene>
+        <!--Settings View Controller-->
         <scene sceneID="v0I-PB-VAw">
             <objects>
-                <viewController title="Forecast View Controller" id="vll-uP-83e" customClass="ForecastViewController" customModule="Clima" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings View Controller" id="vll-uP-83e" customClass="ForecastViewController" customModule="Clima" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zpV-f2-PYR"/>
                         <viewControllerLayoutGuide type="bottom" id="bUm-qJ-fhY"/>
@@ -309,26 +459,102 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundAlternate" translatesAutoresizingMaskIntoConstraints="NO" id="eXs-le-II2" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apa-Zc-bsc" userLabel="Back Button">
-                                <rect key="frame" x="20" y="44" width="32" height="32"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXa-eo-Agr" userLabel="Menu Bar">
+                                <rect key="frame" x="0.0" y="808" width="414" height="88"/>
+                                <subviews>
+                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="6V0-Qq-3R8" userLabel="menu-background">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FdT-OF-Xgy">
+                                        <rect key="frame" x="42" y="10" width="330" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxx-7F-DB0">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="G1i-ME-2z3"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="UCv-jw-NlN"/>
+                                                    <constraint firstAttribute="width" constant="60" id="lnZ-QN-KL6"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="srV-Ed-lxM"/>
+                                                </constraints>
+                                                <state key="normal" title="HomeButton" image="house-outline"/>
+                                                <connections>
+                                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="homeButtonPressed" animates="NO" id="Hxa-9L-lYB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLq-az-YRk">
+                                                <rect key="frame" x="90" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="4yb-SI-cZE"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Kjf-wf-Ud4"/>
+                                                    <constraint firstAttribute="width" constant="60" id="UOl-WN-UIg"/>
+                                                </constraints>
+                                                <state key="normal" title="Location Button" image="location-marker"/>
+                                                <connections>
+                                                    <action selector="locationButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vPQ-fB-HNG"/>
+                                                    <segue destination="P1Y-dL-zMM" kind="show" animates="NO" id="WVH-FT-ffp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XV4-Zv-a60" userLabel="Profile Button">
+                                                <rect key="frame" x="180" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="0UY-MT-lcs"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="W2F-rK-Yo4"/>
+                                                    <constraint firstAttribute="width" constant="60" id="kIh-Mh-T4d"/>
+                                                </constraints>
+                                                <state key="normal" title="Settings Button" image="user-outline"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="so3-Gc-Qe0">
+                                                <rect key="frame" x="270" y="0.0" width="60" height="60"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="UEi-a8-jg4"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Z17-3u-Ti9"/>
+                                                    <constraint firstAttribute="height" constant="60" id="tfM-Po-gzp"/>
+                                                </constraints>
+                                                <state key="normal" title="SettingsButton" image="settings-cogwheel-blue"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="45L-qb-HmU"/>
-                                    <constraint firstAttribute="height" constant="32" id="vkC-Hp-Ei1"/>
+                                    <constraint firstAttribute="trailing" secondItem="6V0-Qq-3R8" secondAttribute="trailing" id="3Je-a5-3GN"/>
+                                    <constraint firstItem="6V0-Qq-3R8" firstAttribute="top" secondItem="GXa-eo-Agr" secondAttribute="top" id="3hb-Db-q6t"/>
+                                    <constraint firstItem="6V0-Qq-3R8" firstAttribute="leading" secondItem="GXa-eo-Agr" secondAttribute="leading" id="4RT-eX-1B3"/>
+                                    <constraint firstAttribute="bottom" secondItem="FdT-OF-Xgy" secondAttribute="bottom" constant="18" id="5ZJ-89-nUc"/>
+                                    <constraint firstAttribute="bottom" secondItem="6V0-Qq-3R8" secondAttribute="bottom" id="6IC-kb-KdK"/>
+                                    <constraint firstAttribute="trailing" secondItem="FdT-OF-Xgy" secondAttribute="trailing" constant="42" id="JVQ-md-vob"/>
+                                    <constraint firstAttribute="height" constant="88" id="RlD-H6-x4d"/>
+                                    <constraint firstAttribute="bottom" secondItem="6V0-Qq-3R8" secondAttribute="bottom" id="Yet-vW-tdb"/>
+                                    <constraint firstAttribute="bottom" secondItem="6V0-Qq-3R8" secondAttribute="bottom" constant="1" id="cTg-Zp-1Nt"/>
+                                    <constraint firstAttribute="trailing" secondItem="6V0-Qq-3R8" secondAttribute="trailing" id="fAH-jq-4YA"/>
+                                    <constraint firstItem="FdT-OF-Xgy" firstAttribute="centerX" secondItem="GXa-eo-Agr" secondAttribute="centerX" id="hPr-WJ-nXt"/>
+                                    <constraint firstItem="FdT-OF-Xgy" firstAttribute="leading" secondItem="GXa-eo-Agr" secondAttribute="leading" constant="42" id="rSe-Fw-LqY"/>
+                                    <constraint firstAttribute="bottom" secondItem="6V0-Qq-3R8" secondAttribute="bottom" constant="-1" id="t9w-Vg-UKq"/>
+                                    <constraint firstItem="6V0-Qq-3R8" firstAttribute="leading" secondItem="GXa-eo-Agr" secondAttribute="leading" id="tVo-VS-Srs"/>
+                                    <constraint firstAttribute="bottom" secondItem="6V0-Qq-3R8" secondAttribute="bottom" constant="1" id="uXC-aR-J9K"/>
+                                    <constraint firstAttribute="width" constant="414" id="uyj-iG-hvN"/>
                                 </constraints>
-                                <state key="normal" image="left">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="forecastBackButtonPressed:" destination="vll-uP-83e" eventType="touchUpInside" id="JUS-vR-KTb"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="GXa-eo-Agr" firstAttribute="leading" secondItem="7lh-53-FMt" secondAttribute="leading" id="701-2j-fah"/>
                             <constraint firstAttribute="bottom" secondItem="eXs-le-II2" secondAttribute="bottom" id="ASE-w5-iVa"/>
                             <constraint firstItem="eXs-le-II2" firstAttribute="leading" secondItem="7lh-53-FMt" secondAttribute="leading" id="PXi-Db-Y5I"/>
-                            <constraint firstItem="Apa-Zc-bsc" firstAttribute="top" secondItem="zpV-f2-PYR" secondAttribute="bottom" id="bKq-Z1-S5u"/>
-                            <constraint firstItem="Apa-Zc-bsc" firstAttribute="leading" secondItem="7lh-53-FMt" secondAttribute="leadingMargin" id="c78-lq-rsJ"/>
+                            <constraint firstAttribute="trailing" secondItem="GXa-eo-Agr" secondAttribute="trailing" id="blL-sL-Lfn"/>
+                            <constraint firstAttribute="bottom" secondItem="GXa-eo-Agr" secondAttribute="bottom" id="ffq-UR-KbP"/>
                             <constraint firstItem="eXs-le-II2" firstAttribute="top" secondItem="7lh-53-FMt" secondAttribute="top" id="iWb-FK-sIa"/>
                             <constraint firstAttribute="trailing" secondItem="eXs-le-II2" secondAttribute="trailing" id="jch-Bq-1Q4"/>
                         </constraints>
@@ -336,7 +562,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMJ-5l-n1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1634" y="260"/>
+            <point key="canvasLocation" x="2291" y="256"/>
         </scene>
     </scenes>
     <resources>
@@ -344,13 +570,18 @@
         <image name="backgroundAlternate" width="600" height="337"/>
         <image name="cityBackground" width="600" height="399"/>
         <image name="house-outline" width="480" height="480"/>
+        <image name="house-outline-blue" width="480" height="480"/>
         <image name="left" width="32" height="32"/>
+        <image name="location-marker" width="512" height="512"/>
+        <image name="location-marker-blue" width="512" height="512"/>
         <image name="menu" width="364" height="137"/>
-        <image name="placeholder" width="512" height="512"/>
-        <image name="settings" width="480" height="480"/>
+        <image name="settings-cogwheel" width="480" height="480"/>
+        <image name="settings-cogwheel-blue" width="480" height="480"/>
         <image name="switch" width="64" height="64"/>
+        <image name="user-outline" width="480" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bPT-PX-iwH"/>
+        <segue reference="6pT-VR-NYj"/>
+        <segue reference="WVH-FT-ffp"/>
     </inferredMetricsTieBreakers>
 </document>
